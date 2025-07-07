@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="contact-col">
-            <form action="form-handler.php" method="post">
+         <form action="" method="post" id="contactForm">
                 <input type="text" name="name" placeholder="Enter Your Name" required>
                  <input type="email" name="email" placeholder="Enter Your Email" required>
                   <input type="text" name="subject" placeholder="Enter Your Subject" required>
@@ -103,6 +103,25 @@
     function hideMenu() {
         navLinks.style.right = "-200px";
     }
+
+    // 👉 Contact Form JavaScript
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // form submit hone se page reload nahi hoga
+
+    // Values le lo form se
+    const name = this.name.value;
+    const email = this.email.value;
+    const subject = this.subject.value;
+    const message = this.message.value;
+
+    // Show confirmation
+    alert(
+      "Thank you " + name + "!\n\nYour message has been received.\n\nWe'll contact you shortly."
+    );
+
+    // Reset the form
+    this.reset();
+  });
 </script>
 </body>
 </html>
